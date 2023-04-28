@@ -26,9 +26,10 @@ if image_streamlit != None:
         mask = result.masks.cpu().numpy()
         masks = mask.masks.astype(bool)
         ori_img = result.orig_img
+        new = None
         for m in masks:
             new = np.zeros_like(ori_img, dtype=np.uint8)
             new[m] = ori_img[m]
 
-            cv2.imwrite("h.jpg",new)
-            st.image("h.jpg")
+        cv2.imwrite("h.jpg",new)
+        st.image("h.jpg"
