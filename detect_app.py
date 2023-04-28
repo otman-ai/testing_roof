@@ -8,7 +8,7 @@ st.info("make sure the front door is very clear on the image")
 #load the model
 @st.cache_resource
 def load_model_():
-    model = YOLO("train/weights/best.pt")
+    model = YOLO("roof/weights/best2.pt")
     return model
 
 
