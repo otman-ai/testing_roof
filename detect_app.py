@@ -31,4 +31,4 @@ if image_streamlit != None:
             new[m] = ori_img[m]
 
             cv2.imwrite("h.jpg",new)
-        st.image("h.jpg")
+            st.image("h.jpg")
