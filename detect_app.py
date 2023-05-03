@@ -28,7 +28,7 @@ if image_streamlit != None:
         mask = result.masks.cpu().numpy()
         masks = mask.masks.astype(bool)
         ori_img = result.orig_img
-        new = np.zeros_like(ori_img, dtype=np.uint8)
+        new = np.ones_like(ori_img, dtype=np.uint8)
         for m in masks:
             new[m] = ori_img[m]
 
