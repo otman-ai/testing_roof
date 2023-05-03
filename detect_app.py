@@ -9,7 +9,7 @@ st.info("make sure the Roof is very clear on the image")
 #load the model
 @st.cache_resource
 def load_model_():
-    model = YOLO("best.pt")
+    model = YOLO("wall.pt")
     return model
 
 
