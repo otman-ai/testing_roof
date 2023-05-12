@@ -28,7 +28,7 @@ if image_streamlit != None:
      original_img = cv2.imread("image.jpg")
      for result in img:
          mask = result.masks.cpu().numpy()
-         cv2.imwrite("mask.jpg")
+         cv2.imwrite("mask.jpg",mask)
          masks = mask.masks.astype(bool)
         
          ori_img = result.orig_img
