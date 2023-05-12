@@ -44,7 +44,7 @@ if image_streamlit != None:
 
         cv2.imwrite("h.png",new)
         siding_mask_3ch = cv2.cvtColor(cv2.imread("h.png",0), cv2.COLOR_GRAY2BGR)
-        modified_image = cv2.addWeighted(ori_img, 1.0, siding_mask_3ch, 0.5, 0)
+        modified_image = cv2.addWeighted(original_img, 1.0, siding_mask_3ch, 0.5, 0)
         modified_image = cv2.addWeighted(modified_image, 1.0, new_color, 0.5, 0)
         st.image(modified_image)
 
