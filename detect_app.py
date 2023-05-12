@@ -32,19 +32,8 @@ if image_streamlit != None:
         
         ori_img = result.orig_img
         new = np.ones_like(ori_img, dtype=np.uint8)
-#         new_color = np.array([0, 255, 0])  # Green color, you can adjust the values accordingly
-#         for m in masks:
-#             new[m] = ori_img[m]
-        new_color = np.array([0, 255, 0], dtype=np.uint8)  # Green color, you can adjust the values accordingly
-        modified_img = original_img.copy()
-
-        # Ensure the mask dimensions match the image dimensions
-        if masks.shape[:2] == original_img.shape[:2]:
-            modified_img[masks] = new_color
-        else:
-            st.error("Mask dimensions do not match the image dimensions.")
-
-        # Save and display the modified image
-        cv2.imwrite("modified_image.png", modified_img)
+        for m in masks:
+            new[m] = ori_img[m]
+        cv2.imwrite("modified_image.png", new)
         st.image("modified_image.png")
 
