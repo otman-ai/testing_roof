@@ -14,11 +14,11 @@ def load_model_():
      return model
 
 
- model = load_model_()
+model = load_model_()
 
- image_streamlit  = st.file_uploader("Upload your image",type=["jpg","png","jpeg"])
+image_streamlit  = st.file_uploader("Upload your image",type=["jpg","png","jpeg"])
 
- if image_streamlit != None:
+if image_streamlit != None:
      st.image(image_streamlit)
      with open("image.jpg",mode = "wb") as f:
          f.write(image_streamlit.getbuffer())
@@ -36,6 +36,12 @@ def load_model_():
              new[m] = ori_img[m]
          cv2.imwrite("modified_image.png", new)
          st.image("modified_image.png")
+     mask = cv2;imread("modified_image.png")
+     _, mask = cv2.threshold(mask, thresh=180, maxval=255, type=cv2.THRESH_BINARY)
+     green_hair = np.copy(face)
+     green_hair[(mask==255).all(-1)] = [0,255,0]
+     st.image(green_hair)
+
 # from ultralytics import YOLO
 # import streamlit as st
 # import cv2
