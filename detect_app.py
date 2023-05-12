@@ -47,7 +47,7 @@ st.write("Please upload an image of a house with a roof. The extracted wall will
 st.info("Make sure the wall is clear in the image.")
 
 # Load the model
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_model():
     model = YOLO("wall.pt")
     return model
