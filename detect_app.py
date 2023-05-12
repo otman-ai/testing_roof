@@ -36,11 +36,11 @@ if image_streamlit != None:
              new[m] = ori_img[m]
          cv2.imwrite("modified_image.png", new)
          st.image("modified_image.png")
-     mask = cv2;imread("modified_image.png")
-     _, mask = cv2.threshold(mask, thresh=180, maxval=255, type=cv2.THRESH_BINARY)
-     green_hair = np.copy(face)
-     green_hair[(mask==255).all(-1)] = [0,255,0]
-     st.image(green_hair)
+         mask = cv2.imread("modified_image.png")
+         _, mask = cv2.threshold(mask, thresh=180, maxval=255, type=cv2.THRESH_BINARY)
+         green_hair = np.copy(face)
+         green_hair[(mask==255).all(-1)] = [0,255,0]
+         st.image(green_hair)
 
 # from ultralytics import YOLO
 # import streamlit as st
