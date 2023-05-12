@@ -29,12 +29,15 @@ if image_streamlit != None:
     for result in img:
         mask = result.masks.cpu().numpy()
         masks = mask.masks.astype(bool)
+        
         ori_img = result.orig_img
         new = np.ones_like(ori_img, dtype=np.uint8)
-        new_color = np.array([0, 255, 0])  # Green color, you can adjust the values accordingly
-        for m in masks:
-            new[m] = ori_img[m]
-
-        cv2.imwrite("h.png",new)
+#         new_color = np.array([0, 255, 0])  # Green color, you can adjust the values accordingly
+#         for m in masks:
+#             new[m] = ori_img[m]
+        new_color = np.array([0, 255, 0], dtype=np.uint8)  # Green color, you can adjust the values accordingly
+        modified_img = original_img.copy()
+        modified_img[masks] = new_color
+        cv2.imwrite("h.png",modified_img)
         st.image("h.png")
 
