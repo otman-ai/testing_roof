@@ -66,7 +66,7 @@ if image_streamlit is not None:
     
     for result in img:
         mask = result.masks.cpu().numpy()
-        masks = mask..masks.astype(bool)
+        masks = mask.masks.astype(bool)
         
         modified_img = original_img.copy()
         new_color = np.array([0, 255, 0], dtype=np.uint8)  # Green color, you can adjust the values accordingly
