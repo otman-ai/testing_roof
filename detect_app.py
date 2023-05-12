@@ -36,7 +36,7 @@ if image_streamlit != None:
 
          for m in masks:
              new[m] = ori_img[m]
-             new_[m] = 1
+             new_[m] = 0
          cv2.imwrite("modified_image.png", new)
          cv2.imwrite("modified_image_.png", new_)
      
@@ -45,7 +45,7 @@ if image_streamlit != None:
           
          mask = cv2.imread("modified_image.png")
          _, mask = cv2.threshold(mask, thresh=180, maxval=255, type=cv2.THRESH_BINARY)
-         green_hair = np.copy(ori_img)
+         green_hair = np.copy(original_img)
          green_hair[(mask==255).all(-1)] = [0,255,0]
          st.image(green_hair)
 
