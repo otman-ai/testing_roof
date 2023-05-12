@@ -37,8 +37,8 @@ if image_streamlit != None:
         #siding_mask = cv2.imread('mask.png', 0)  # Ensure the mask is grayscale (single channel)
         #siding_mask_3ch = cv2.cvtColor(siding_mask, cv2.COLOR_GRAY2BGR)
         new_color = np.array([0, 255, 0])  # Green color, you can adjust the values accordingly
-        modified_image = cv2.addWeighted(original_img, 1.0, siding_mask_3ch, 0.5, 0)
-        modified_image = cv2.addWeighted(modified_image, 1.0, new_color, 0.5, 0)
+        #modified_image = cv2.addWeighted(original_img, 1.0, siding_mask_3ch, 0.5, 0)
+        #modified_image = cv2.addWeighted(modified_image, 1.0, new_color, 0.5, 0)
         for m in masks:
             new[m] = ori_img[m]
 
