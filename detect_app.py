@@ -32,10 +32,17 @@ if image_streamlit != None:
         
          ori_img = result.orig_img
          new = np.ones_like(ori_img, dtype=np.uint8)
+         new_ = np.ones_like(ori_img, dtype=np.uint8)
+
          for m in masks:
              new[m] = ori_img[m]
+             new_[m] = 1
          cv2.imwrite("modified_image.png", new)
+         cv2.imwrite("modified_image_.png", new_)
+     
          st.image("modified_image.png")
+         st.image("modified_image_.png")
+          
          mask = cv2.imread("modified_image.png")
          _, mask = cv2.threshold(mask, thresh=180, maxval=255, type=cv2.THRESH_BINARY)
          green_hair = np.copy(ori_img)
