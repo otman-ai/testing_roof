@@ -28,6 +28,7 @@ if image_streamlit != None:
      original_img = cv2.imread("image.jpg")
      for result in img:
          mask = result.masks.cpu().numpy()
+         cv2.imwrite("mask.jpg")
          masks = mask.masks.astype(bool)
         
          ori_img = result.orig_img
@@ -41,7 +42,7 @@ if image_streamlit != None:
          cv2.imwrite("modified_image_.png", new_)
      
          st.image("modified_image.png")
-         st.image("modified_image_.png")
+         st.image("mask.jpg")
           
          mask = cv2.imread("modified_image.png")
          _, mask = cv2.threshold(mask, thresh=180, maxval=255, type=cv2.THRESH_BINARY)
