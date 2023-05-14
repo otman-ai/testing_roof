@@ -41,7 +41,7 @@ if image_streamlit != None:
          cv2.imwrite("modified_image.png", new)
          #cv2.imwrite("modified_image_.png", new_)
      
-         #st.image("modified_image.png")
+         st.image("modified_image.png")
           
       
 
