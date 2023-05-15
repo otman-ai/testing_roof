@@ -30,7 +30,7 @@ if image_streamlit != None:
          mask = result.masks.cpu().numpy()
          #cv2.imwrite("mask.jpg",mask.masks)
          masks = mask.masks.astype(bool)
-        
+         print(masks)
          ori_img = result.orig_img
          new = np.ones_like(ori_img, dtype=np.uint8)
          new_ = np.ones_like(ori_img, dtype=np.uint8)
